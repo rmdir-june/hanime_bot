@@ -13,11 +13,12 @@ async def on_ready():
 async def on_message(message):
     if message.author == client.user:
         return
-    if message.content.startswith('$review'):
-        sender = message.author
+    if message.content.startswith('$review https://hanime.tv'):
         url = message.content[8:]
         response = main(url)
         await message.channel.send(f'{message.author.mention}{response}')
+    if message.content == '$review':
+        await message.channel.send(f"{message.author.mention} valid use: $review <link>")
 
 
-client.run('OTgwODg5MTMxNjAzMzUzNjMw.GFw_bA.zGLEDuaVPEETqKorBjKBtvxuwUs2zfzG6KkGlA')
+client.run('')
